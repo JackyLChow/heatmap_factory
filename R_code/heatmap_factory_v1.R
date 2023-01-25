@@ -57,7 +57,9 @@ heatmap_factory <- function(counts_matrix = counts_matrix,
   # for loop across all gene sets
   for(i in names(gene_sets)){
     genes_ <- gene_sets[[i]]
+    #genes_ <- str_replace_all(genes_, "-", ".")
     counts_ <- counts_matrix[genes_[genes_ %in% rownames(counts_matrix)], ]
+    counts_ <- counts_[rowVars(counts_) != 0, ]
     heat_counts_ <- t(scale(t(counts_)))
     #heat_counts_[heat_counts_ < -2] <- -2
     #heat_counts_[heat_counts_ > 2] <- 2
