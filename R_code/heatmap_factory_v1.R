@@ -7,6 +7,8 @@
 library(ComplexHeatmap)
 library(stringr)
 library(pals)
+library(matrixStats)
+library(circlize)
 
 ### data management ------------------------------------------------------------
 # load data
